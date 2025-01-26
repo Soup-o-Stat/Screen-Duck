@@ -1,0 +1,166 @@
+[gd_scene load_steps=21 format=3 uid="uid://c28k4onv2bafl"]
+
+[ext_resource type="Texture2D" uid="uid://bpm7vdm2lvu1r" path="res://media/gfx/duck.png" id="1_ku1d6"]
+[ext_resource type="Script" path="res://scripts/duck.gd" id="2_kcwqm"]
+[ext_resource type="AudioStream" uid="uid://bq5eut7keraxa" path="res://media/sfx/quack.mp3" id="3_8x1d6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_efe42"]
+atlas = ExtResource("1_ku1d6")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_38y3k"]
+atlas = ExtResource("1_ku1d6")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pnrfq"]
+atlas = ExtResource("1_ku1d6")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vmj7j"]
+atlas = ExtResource("1_ku1d6")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7hnb2"]
+atlas = ExtResource("1_ku1d6")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c1xy1"]
+atlas = ExtResource("1_ku1d6")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1ysw"]
+atlas = ExtResource("1_ku1d6")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4aipe"]
+atlas = ExtResource("1_ku1d6")
+region = Rect2(96, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yebyb"]
+atlas = ExtResource("1_ku1d6")
+region = Rect2(128, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_30l8u"]
+atlas = ExtResource("1_ku1d6")
+region = Rect2(160, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kc6jg"]
+atlas = ExtResource("1_ku1d6")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ax74h"]
+atlas = ExtResource("1_ku1d6")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y0sn0"]
+atlas = ExtResource("1_ku1d6")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3hlqg"]
+atlas = ExtResource("1_ku1d6")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bj3xd"]
+atlas = ExtResource("1_ku1d6")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oke6p"]
+atlas = ExtResource("1_ku1d6")
+region = Rect2(160, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k3k8x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_efe42")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_38y3k")
+}],
+"loop": true,
+"name": &"idle_brown",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pnrfq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vmj7j")
+}],
+"loop": true,
+"name": &"idle_green",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7hnb2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c1xy1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1ysw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4aipe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yebyb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_30l8u")
+}],
+"loop": true,
+"name": &"walk_brown",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kc6jg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ax74h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y0sn0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3hlqg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bj3xd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oke6p")
+}],
+"loop": true,
+"name": &"walk_green",
+"speed": 8.0
+}]
+
+[node name="duck" type="AnimatedSprite2D"]
+position = Vector2(80, 80)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_k3k8x")
+animation = &"walk_brown"
+autoplay = "idle_green"
+script = ExtResource("2_kcwqm")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+button_mask = 3
+
+[node name="quack_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_8x1d6")
+
+[connection signal="button_down" from="TextureButton" to="." method="_on_texture_button_button_down"]
+[connection signal="button_up" from="TextureButton" to="." method="_on_texture_button_button_up"]
